@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elitewebcraft Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="project.html" class="nav-link">Projects</a>
+    <a href="resume.html" class="nav-link">Resume</a>
+    <a href="contacts.html" class="nav-link">Contact</a>
+    <a id="nav-auth" href="login.html" class="nav-link">Sign In</a>
+    <a href="skills.html" class="nav-link">My skill</a>
+    <a href="admin.html" id="admin-link" class="nav-link admin-link">Admin Dashboard</a>
+  </nav>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <h1>Hi — I'm Elitewebcraft</h1>
+    <p>Modern, clean portfolio. Please sign in to view projects and resume.</p>
+    <div class="cta">
+      <a class="btn" href="projects.html">View Projects</a>
+      <a class="btn ghost" href="register.html">Register</a>
+    </div>
+  </section>
+
+  <section class="features">
+    <article>
+      <h3>ABOUT ME</h3>
+      <a href="aboutme.html" class="btn ghost">Learn More</a>
+      <p>Front-end focused developer building responsive web apps.</p>  
+    </article>
+    <article>
+      <h3>Skills</h3>
+      <a href="skills.html" class="btn ghost">View Skills</a>
+      <p>HTML • CSS • JavaScript • UI/UX • node.js • react.js</p>
+    </article>
+    <article>
+      <h3>Contact</h3>
+      <a href="contact.html" class="btn ghost">Get in Touch</a>
+      <p>Reach out via the contact page.</p>
+    </article>
+  </section>
+</main>
+
+<footer>
+  © 2025 Elitewebcraft — All Rights Reserved
+</footer>
+
+<script src="auth.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const navAuth = document.getElementById('nav-auth');
+  const adminLink = document.getElementById('admin-link');
+
+  // Check login
+  const user = JSON.parse(localStorage.getItem('ew_currentUser'));
+
+  if (user) {
+    navAuth.textContent = 'Logout';
+    navAuth.href = 'logout.html';
+
+    // Only show Admin Dashboard link for admin
+    if (user.email === 'admin@elitewebcraft.com') {
+      adminLink.style.display = 'inline-block';
+    } else {
+      adminLink.style.display = 'none';
+    }
+  } else {
+    navAuth.textContent = 'Sign In';
+    navAuth.href = 'login.html';
+    adminLink.style.display = 'none';
+  }
+
+  // Highlight current page
+  const currentPage = location.pathname.split("/").pop();
+  document.querySelectorAll('.nav-link').forEach(link => {
+    if (link.getAttribute('href') === currentPage) {
+      link.classList.add('active');
+    }
+  });
+});
+</script>
+
+</body>
+</html>

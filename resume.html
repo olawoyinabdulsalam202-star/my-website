@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Elitewebcraft — Resume</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav">
+<a class="brand" href="index.html">Elitewebcraft</a>
+<nav>
+<a href="index.html">Home</a>
+<a href="projects.html">Projects</a>
+<a href="contact.html">Contact</a>
+<a id="nav-auth" href="logout.html">Logout</a>
+</nav>
+</header>
+
+
+<main class="container">
+<article class="card resume">
+<h2>Resume — Elitewebcraft</h2>
+<p class="muted">Signed-in users only</p>
+<h3>Summary</h3>
+<p>Front-end focused developer with experience building responsive and accessible web apps.</p>
+<h3>Skills</h3>
+<ul>
+<li>HTML / CSS / JavaScript</li>
+<li>Responsive Design</li>
+<li>UI/UX & Prototyping</li>
+</ul>
+<h3>Experience</h3>
+<p>Freelance web developer — multiple small projects and client demos.</p>
+</article>
+</main>
+
+
+<script src="auth.js"></script>
+<script>
+requireAuth();
+</script>
+</body>
+</html>

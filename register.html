@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Elitewebcraft — Register</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav">
+<a class="brand" href="index.html">Elitewebcraft</a>
+<nav>
+<a href="index.html">Home</a>
+<a href="contact.html">Contact</a>
+</nav>
+</header>
+
+
+<main class="auth-container">
+<form id="regForm" class="card">
+<h2>Create Account</h2>
+<label>Full name
+<input id="fullname" required>
+</label>
+<label>Email
+<input id="regemail" type="email" required>
+</label>
+<label>Password
+<input id="regpassword" type="password" minlength="6" required>
+</label>
+<button class="btn" type="submit">Register</button>
+<p class="muted">Already registered? <a href="login.html">Sign in</a></p>
+<p id="regmsg" class="error"></p>
+</form>
+</main>
+
+
+<script src="auth.js"></script>
+<script>
+document.getElementById('regForm').addEventListener('submit', (e) => {
+e.preventDefault();
+const fullname = document.getElementById('fullname').value.trim();
+const email = document.getElementById('regemail').value.trim().toLowerCase();
+const password = document.getElementById('regpassword').value;
+const msg = document.getElementById('regmsg');
+const ok = registerUser(fullname, email, password);
+if (ok === true) {
+// auto-login
+loginUser(email, password);
+window.location.href = 'projects.html';
+} else {
+msg.textContent = ok; // error message
+}
+});
+</script>
+</body>
+</html>

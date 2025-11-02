@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Elitewebcraft — Login</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav">
+<a class="brand" href="index.html">Elitewebcraft</a>
+<nav>
+<a href="index.html">Home</a>
+<a href="contact.html">Contact</a>
+</nav>
+</header>
+
+
+<main class="auth-container">
+<form id="loginForm" class="card">
+<h2>Sign In</h2>
+<label>Email
+<input id="email" type="email" required>
+</label>
+<label>Password
+<input id="password" type="password" required>
+</label>
+<button type="submit" class="btn">Sign In</button>
+<p class="muted">Don't have an account? <a href="register.html">Register</a></p>
+<p id="msg" class="error"></p>
+</form>
+</main>
+
+
+<script src="auth.js"></script>
+<script>
+document.getElementById('loginForm').addEventListener('submit', (e) => {
+e.preventDefault();
+const email = document.getElementById('email').value.trim().toLowerCase();
+const password = document.getElementById('password').value;
+const ok = loginUser(email, password);
+const msg = document.getElementById('msg');
+if (ok) {
+window.location.href = 'projects.html';
+} else {
+msg.textContent = 'Invalid email or password.';
+}
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Elitewebcraft — Projects</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav">
+<a class="brand" href="index.html">Elitewebcraft</a>
+<nav>
+<a href="index.html">Home</a>
+<a href="resume.html">Resume</a>
+<a href="contact.html">Contact</a>
+<a id="nav-auth" href="logout.html">Logout</a>
+</nav>
+</header>
+
+
+<main class="container">
+<section id="projects" class="grid">
+<h2>Your Projects</h2>
+
+
+
+<div class="card project-card">
+<h3>Project Alpha</h3>
+<p>Responsive e-commerce demo built with vanilla JS.</p>
+<a href="https://supersimple.dev/project/amazon" class="btn ghost">View</a>
+</div>
+
+
+<div class="card project-card">
+<h3>xzmovie</h3>
+<p>Modern portfolio layout and CSS animations.</p>
+<a href="https://xzmovies.me/" class="btn ghost">View</a>
+</div>
+
+
+<div class="card project-card">
+<h3>Admin Dashboard</h3>
+<p>Small dashboard UI with mock data.</p>
+<a href="admin.html" class="btn ghost">View</a>
+</div>
+
+<div class="card project-card">
+<h3>Weather App</h3>  
+<p>hfubjmkjkm</p>
+<a href="https://www.jumia.com.ng/" class="btn ghost">View</a>
+
+
+</section>
+</main>
+
+
+<script src="auth.js"></script>
+<script>
+requireAuth();
+
+
+// Update nav link
+document.addEventListener('DOMContentLoaded', () => {
+const navAuth = document.getElementById('nav-auth');
+navAuth.textContent = 'Logout';
+navAuth.href = 'logout.html';
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+{
+  "livePreview.defaultPreviewPath": "/images.html",
+  "editor.tabSize": 2,
+  "files.autoSave": "afterDelay",
+  "liveServer.settings.port": 5502
+}
